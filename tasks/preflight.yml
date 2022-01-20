@@ -1,5 +1,15 @@
 ---
-- name: "Check for pi user"
-  command: id -u pi
-  ignore_errors: yes
-  register: _raspbian_tweaks__pi_user_exists
+# https://stackoverflow.com/a/63719754
+- name: "Get available users"
+  getent:
+    database: passwd
+
+- name: "Set fact which will be overwritten when pi user is found"
+  set_fact:
+    _raspbian_tweaks__pi_user_exists: false
+
+- name: "Check if pi user exists"
+  set_fact:
+    _raspbian_tweaks__pi_user_exists: true
+  when: '"pi" in item.key'
+  loop: "{{ ansible_facts.getent_passwd | dict2items }}"

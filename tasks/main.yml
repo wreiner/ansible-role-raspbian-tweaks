@@ -6,4 +6,4 @@
     name: "pi"
     shell: "/sbin/nologin"
     password: "!"
-  when: _raspbian_tweaks__pi_user_exists|bool
+  when: _raspbian_tweaks__pi_user_exists
