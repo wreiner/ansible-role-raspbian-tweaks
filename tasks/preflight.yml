@@ -1,0 +1,5 @@
+---
+- name: "Check for pi user"
+  command: id -u pi
+  ignore_errors: yes
+  register: _raspbian_tweaks__pi_user_exists

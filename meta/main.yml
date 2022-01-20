@@ -1,0 +1,17 @@
+---
+dependencies: []
+
+galaxy_info:
+  role_name: raspbian-tweaks
+  author: wreiner
+  description: Ansible role to perform tasks on Raspbian like disabling pi user.
+  company: "wreiner.at"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.4
+  platforms:
+    - name: Raspbian
+      versions:
+        - all
+  galaxy_tags:
+    - pi
+    - raspberry

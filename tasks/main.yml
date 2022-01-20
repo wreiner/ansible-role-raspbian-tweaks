@@ -1,0 +1,9 @@
+---
+- include_tasks: "preflight.yml"
+
+- name: "Disable pi user"
+  user:
+    name: "pi"
+    shell: "/sbin/nologin"
+    password: "!"
+  when: _raspbian_tweaks__pi_user_exists|bool
